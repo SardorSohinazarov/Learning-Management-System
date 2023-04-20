@@ -31,9 +31,10 @@ namespace LMS.API.Controllers
                 return BadRequest();
 
             if(createUserDTO.Password != createUserDTO.ConfirmPassword)
-            {
                 return BadRequest();
-            }
+
+            if(await _userManager.Users.AnyAsync(user => user.UserName == createUserDTO.UserName))
+                return BadRequest();
 
             var user = createUserDTO.Adapt<User>();
 
