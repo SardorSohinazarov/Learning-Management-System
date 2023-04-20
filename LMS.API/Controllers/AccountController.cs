@@ -33,6 +33,9 @@ namespace LMS.API.Controllers
             if(createUserDTO.Password != createUserDTO.ConfirmPassword)
                 return BadRequest();
 
+            if(await _userManager.Users.AnyAsync(user => user.UserName == createUserDTO.UserName))
+                return BadRequest();
+
             var user = createUserDTO.Adapt<User>();
 
             await _userManager.CreateAsync(user, createUserDTO.Password);
@@ -63,6 +66,9 @@ namespace LMS.API.Controllers
         public async Task<IActionResult> Profile(string UserName)
         {
             var user = await _userManager.GetUserAsync(User);
+
+            if(user.UserName != UserName)
+                return NotFound();
 
             return Ok(user.Adapt<UserDTO>());
         }
