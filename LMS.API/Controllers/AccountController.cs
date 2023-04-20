@@ -66,6 +66,9 @@ namespace LMS.API.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
 
+            if(user.UserName != UserName)
+                return NotFound();
+
             return Ok(user.Adapt<UserDTO>());
         }
     }
