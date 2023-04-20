@@ -31,9 +31,7 @@ namespace LMS.API.Controllers
                 return BadRequest();
 
             if(createUserDTO.Password != createUserDTO.ConfirmPassword)
-            {
                 return BadRequest();
-            }
 
             var user = createUserDTO.Adapt<User>();
 
@@ -50,7 +48,7 @@ namespace LMS.API.Controllers
                 return BadRequest();
 
             if(! await _userManager.Users.AnyAsync(user => user.UserName == signInUserDTO.UserName))
-                return NotFound(signInUserDTO);
+                return NotFound();
 
             Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(signInUserDTO.UserName, signInUserDTO.Password, isPersistent:true , lockoutOnFailure: false);
 

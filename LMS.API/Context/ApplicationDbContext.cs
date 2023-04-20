@@ -10,5 +10,7 @@ namespace LMS.API.Context
     {
         public ApplicationDbContext(DbContextOptions option)
             :base(option) { }
+
+        public DbSet<Course> Courses { get; set; }
     }
 }
