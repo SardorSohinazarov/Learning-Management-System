@@ -19,7 +19,7 @@ namespace LMS.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options 
+            services.AddDbContext<ApplicationDbContext>(options
                 => options.UseLazyLoadingProxies()
                     .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace LMS.API.Models.DTO
+﻿namespace LMS.API.Models.DTO
 {
     public class UserDTO
     {
