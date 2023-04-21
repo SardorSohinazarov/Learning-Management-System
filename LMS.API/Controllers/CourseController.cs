@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using LMS.API.Context;
+using LMS.API.Mappers;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
-using Mapster;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,13 +15,18 @@ namespace LMS.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CourseController : ControllerBase
     {
         private readonly ApplicationDbContext _applicationDbContext;
+        private readonly UserManager<User> _userManager;
 
-        public CourseController(ApplicationDbContext applicationDbContext)
+        public CourseController(
+            ApplicationDbContext applicationDbContext, 
+            UserManager<User> userManager)
         {
             _applicationDbContext = applicationDbContext;
+            _userManager = userManager;
         }
 
         [HttpPost]
@@ -27,20 +35,36 @@ namespace LMS.API.Controllers
             if(!ModelState.IsValid)
                 return BadRequest();
 
-            var course = createCourseDTO.Adapt<Course>();
-            course.Key = Guid.NewGuid().ToString();
+            var user = await _userManager.GetUserAsync(User);
+
+            var course = new Course
+            {
+                Name = createCourseDTO.Name,
+                Key = Guid.NewGuid().ToString(),
+                Users = new List<UserCourse>
+                {
+                    new UserCourse
+                    {
+                        UserId = user.Id,
+                        IsAdmin = true
+                    }
+                }
+            };
 
             await _applicationDbContext.Courses.AddAsync(course);
             await _applicationDbContext.SaveChangesAsync();
-            return Ok(course);
+            course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id ==  course.Id);
+
+            return Ok(course.ToDto());
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCourses() 
         {
             var courses = await _applicationDbContext.Courses.ToListAsync();
+            List<CourseDTO> courseDTO = courses?.Select(course => course.ToDto()).ToList();
 
-            return Ok(courses);
+            return Ok(courseDTO);
         }
 
         [HttpGet("{id}")]
@@ -54,14 +78,12 @@ namespace LMS.API.Controllers
             if (course is null)
                 return NotFound();
 
-            return Ok(course);
+            return Ok(course?.ToDto());
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCourse(Guid id, [FromBody] UpdateCourseDTO updateCourseDTO)
         {
-            if(! await _applicationDbContext.Courses.AnyAsync(course => course.Id == id))
-                return NotFound();
 
             if (!ModelState.IsValid)
                 return BadRequest();
@@ -71,11 +93,15 @@ namespace LMS.API.Controllers
             if (course is null)
                 return NotFound();
 
-            course.Name = updateCourseDTO.Name;
+            var user = await _userManager.GetUserAsync(User);
 
+            if (course.Users?.Any(uc => uc.UserId == user.Id && uc.IsAdmin) == false)
+                return BadRequest();
+
+            course.Name = updateCourseDTO.Name;
             await _applicationDbContext.SaveChangesAsync();
 
-            return Ok();
+            return Ok(course?.ToDto());
         }
 
         [HttpDelete]
@@ -86,6 +112,7 @@ namespace LMS.API.Controllers
             if (course is null)
                 return NotFound();
 
+            var user = await _userManager.GetUserAsync(User);
             _applicationDbContext.Courses.Remove(course);
             await _applicationDbContext.SaveChangesAsync();
 

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LMS.API.Models
+namespace LMS.API.Models.DTO
 {
-    public class Course
+    public class CourseDTO
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? Key { get; set; }
 
-        public virtual List<UserCourse>? Users { get; set; }
+        public List<UserDTO?>? Users { get; set; }
     }
 }

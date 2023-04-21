@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,5 +9,7 @@ namespace LMS.API.Models
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+
+        public virtual List<UserCourse>? Courses { get; set; }
     }
 }
