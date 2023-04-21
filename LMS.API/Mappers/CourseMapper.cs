@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
 using Mapster;

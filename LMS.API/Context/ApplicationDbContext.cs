@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Context
 {
-    public class ApplicationDbContext : IdentityDbContext<User ,Role, Guid>
+    public class ApplicationDbContext : IdentityDbContext<User, Role, Guid>
     {
         public ApplicationDbContext(DbContextOptions option)
-            :base(option) 
+            : base(option)
         { }
 
         public DbSet<Course> Courses { get; set; }

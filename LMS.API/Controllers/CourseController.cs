@@ -22,7 +22,7 @@ namespace LMS.API.Controllers
         private readonly UserManager<User> _userManager;
 
         public CourseController(
-            ApplicationDbContext applicationDbContext, 
+            ApplicationDbContext applicationDbContext,
             UserManager<User> userManager)
         {
             _applicationDbContext = applicationDbContext;
@@ -32,7 +32,7 @@ namespace LMS.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCourse([FromBody] CreateCourseDTO createCourseDTO)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest();
 
             var user = await _userManager.GetUserAsync(User);
@@ -53,13 +53,13 @@ namespace LMS.API.Controllers
 
             await _applicationDbContext.Courses.AddAsync(course);
             await _applicationDbContext.SaveChangesAsync();
-            course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id ==  course.Id);
+            course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == course.Id);
 
             return Ok(course.ToDto());
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCourses() 
+        public async Task<IActionResult> GetCourses()
         {
             var courses = await _applicationDbContext.Courses.ToListAsync();
             List<CourseDTO> courseDTO = courses?.Select(course => course.ToDto()).ToList();
@@ -89,7 +89,7 @@ namespace LMS.API.Controllers
                 return BadRequest();
 
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
-            
+
             if (course is null)
                 return NotFound();
 

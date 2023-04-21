@@ -17,7 +17,7 @@ namespace LMS.API.Controllers
         private readonly SignInManager<User> _signInManager;
 
         public AccountController(
-            UserManager<User> userManager, 
+            UserManager<User> userManager,
             SignInManager<User> signInManager)
         {
             _userManager = userManager;
@@ -25,37 +25,37 @@ namespace LMS.API.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<IActionResult> SignUp (SignUpUserDTO createUserDTO)
+        public async Task<IActionResult> SignUp(SignUpUserDTO createUserDTO)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest();
 
-            if(createUserDTO.Password != createUserDTO.ConfirmPassword)
+            if (createUserDTO.Password != createUserDTO.ConfirmPassword)
                 return BadRequest();
 
-            if(await _userManager.Users.AnyAsync(user => user.UserName == createUserDTO.UserName))
+            if (await _userManager.Users.AnyAsync(user => user.UserName == createUserDTO.UserName))
                 return BadRequest();
 
             var user = createUserDTO.Adapt<User>();
 
             await _userManager.CreateAsync(user, createUserDTO.Password);
-            await _signInManager.SignInAsync(user, isPersistent:true);
+            await _signInManager.SignInAsync(user, isPersistent: true);
 
             return Ok();
         }
 
         [HttpPost("signin")]
-        public async Task<IActionResult> SignIn (SignInUserDTO signInUserDTO)
+        public async Task<IActionResult> SignIn(SignInUserDTO signInUserDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            if(! await _userManager.Users.AnyAsync(user => user.UserName == signInUserDTO.UserName))
+            if (!await _userManager.Users.AnyAsync(user => user.UserName == signInUserDTO.UserName))
                 return NotFound();
 
-            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(signInUserDTO.UserName, signInUserDTO.Password, isPersistent:true , lockoutOnFailure: false);
+            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(signInUserDTO.UserName, signInUserDTO.Password, isPersistent: true, lockoutOnFailure: false);
 
-            if(!signInResult.Succeeded)
+            if (!signInResult.Succeeded)
                 return BadRequest();
 
             return Ok();
@@ -67,7 +67,7 @@ namespace LMS.API.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
 
-            if(user.UserName != UserName)
+            if (user.UserName != UserName)
                 return NotFound();
 
             return Ok(user.Adapt<UserDTO>());
