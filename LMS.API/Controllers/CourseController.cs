@@ -16,7 +16,7 @@ namespace LMS.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class CourseController : ControllerBase
+    public partial class CourseController : ControllerBase
     {
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly UserManager<User> _userManager;
@@ -114,6 +114,51 @@ namespace LMS.API.Controllers
 
             var user = await _userManager.GetUserAsync(User);
             _applicationDbContext.Courses.Remove(course);
+            await _applicationDbContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpPost("{id}/join")]
+        public async Task<IActionResult> JoinCourse(Guid id, [FromBody] JoinCourseDto joinCourseDto)
+        {
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            if (course is null)
+                return NotFound();
+
+            var user = await _userManager.GetUserAsync(User);
+            if(course.Users?.Any(uc => uc.UserId == user.Id) == true)
+                return BadRequest();
+
+            _applicationDbContext.UserCourses.Add(
+                new UserCourse
+                {
+                    UserId = user.Id,
+                    CourseId = course.Id,
+                    IsAdmin = false
+                });
+
+            await _applicationDbContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}/leave")]
+        public async Task<IActionResult> LeaveCourse(Guid id, [FromBody] JoinCourseDto joinCourseDto)
+        {
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            if (course is null)
+                return NotFound();
+
+            var user = await _userManager.GetUserAsync(User);
+            if (course.Users?.Any(uc => uc.UserId == user.Id) == false)
+                return BadRequest();
+
+            var usercouerse = await _applicationDbContext.UserCourses
+                .FirstOrDefaultAsync(uc => uc.UserId == user.Id & uc.CourseId == course.Id);
+
+            _applicationDbContext.UserCourses.Remove(usercouerse);
+
             await _applicationDbContext.SaveChangesAsync();
 
             return Ok();
