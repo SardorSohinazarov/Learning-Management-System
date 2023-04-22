@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LMS.API.Models
@@ -17,5 +18,6 @@ namespace LMS.API.Models
         public Guid? CourseId { get; set; }
         [ForeignKey(nameof(CourseId))]
         public virtual Course? Course { get; set; }
+        public virtual List<UserTask>? UserTasks { get; set; }
     }
 }
