@@ -10,5 +10,6 @@ namespace LMS.API.Models
         public string? LastName { get; set; }
 
         public virtual List<UserCourse>? Courses { get; set; }
+        public virtual List<UserTask>? UserTasks { get; set; }
     }
 }

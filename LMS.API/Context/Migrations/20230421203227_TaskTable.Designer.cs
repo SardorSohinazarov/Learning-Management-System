@@ -4,6 +4,7 @@ using LMS.API.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.API.Context.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230421203227_TaskTable")]
+    partial class TaskTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,19 +88,19 @@ namespace LMS.API.Context.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("MaxScore")
+                    b.Property<int>("MaxScore")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("StartDate")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Status")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -105,38 +108,6 @@ namespace LMS.API.Context.Migrations
                     b.HasIndex("CourseId");
 
                     b.ToTable("Tasks");
-                });
-
-            modelBuilder.Entity("LMS.API.Models.TaskComment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("ParentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TaskId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParentId");
-
-                    b.HasIndex("TaskId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("TaskComments");
                 });
 
             modelBuilder.Entity("LMS.API.Models.User", b =>
@@ -233,33 +204,6 @@ namespace LMS.API.Context.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserCourses");
-                });
-
-            modelBuilder.Entity("LMS.API.Models.UserTask", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("TaskId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TaskId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserTasks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -374,29 +318,6 @@ namespace LMS.API.Context.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("LMS.API.Models.TaskComment", b =>
-                {
-                    b.HasOne("LMS.API.Models.TaskComment", "Parent")
-                        .WithMany("Children")
-                        .HasForeignKey("ParentId");
-
-                    b.HasOne("LMS.API.Models.Task", "Task")
-                        .WithMany("Comments")
-                        .HasForeignKey("TaskId");
-
-                    b.HasOne("LMS.API.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Parent");
-
-                    b.Navigation("Task");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("LMS.API.Models.UserCourse", b =>
                 {
                     b.HasOne("LMS.API.Models.Course", "Course")
@@ -412,25 +333,6 @@ namespace LMS.API.Context.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("LMS.API.Models.UserTask", b =>
-                {
-                    b.HasOne("LMS.API.Models.Task", "Task")
-                        .WithMany("UserTasks")
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LMS.API.Models.User", "User")
-                        .WithMany("UserTasks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Task");
 
                     b.Navigation("User");
                 });
@@ -493,23 +395,9 @@ namespace LMS.API.Context.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("LMS.API.Models.Task", b =>
-                {
-                    b.Navigation("Comments");
-
-                    b.Navigation("UserTasks");
-                });
-
-            modelBuilder.Entity("LMS.API.Models.TaskComment", b =>
-                {
-                    b.Navigation("Children");
-                });
-
             modelBuilder.Entity("LMS.API.Models.User", b =>
                 {
                     b.Navigation("Courses");
-
-                    b.Navigation("UserTasks");
                 });
 #pragma warning restore 612, 618
         }
