@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using TelegramSink;
 
 namespace LMS.API
 {
@@ -19,19 +21,9 @@ namespace LMS.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options
-                => options.UseLazyLoadingProxies()
-                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<User, Role>(options =>
-            {
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 6;
-            })
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            AddLoggingOptions(this.Configuration);
+            AddDbContextOptions(services);
+            AddIdentityOptions(services);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -57,6 +49,39 @@ namespace LMS.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void AddDbContextOptions(IServiceCollection services)
+        {
+            services.AddDbContext<ApplicationDbContext>(options
+                            => options.UseLazyLoadingProxies()
+                                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        }
+
+        private static void AddIdentityOptions(IServiceCollection services)
+        {
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 6;
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+        }
+
+        private static void AddLoggingOptions(IConfiguration configuration)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm} [{Level}] ({ThreadId}) {Message}{NewLine}{Exception}")
+                .WriteTo.File(path: "LogFiles/log-.txt", rollingInterval: RollingInterval.Day,
+                    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Message:lj}{NewLine}{Exception}")
+                .WriteTo.TeleSink(telegramApiKey: configuration.GetValue<string>("TelegramValues:telegramToken"), 
+                                telegramChatId:configuration.GetValue<string>("TelegramValues:telegramChatId"))
+            .CreateLogger();
+
+            Log.Logger.Information("Application Starting");
         }
     }
 }

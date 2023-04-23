@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /LMS.API/appsettings.Development.json
+/LMS.API/LogFiles/log-20230423.txt

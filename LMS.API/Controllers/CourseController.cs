@@ -84,7 +84,6 @@ namespace LMS.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCourse(Guid id, [FromBody] UpdateCourseDTO updateCourseDTO)
         {
-
             if (!ModelState.IsValid)
                 return BadRequest();
 
@@ -113,6 +112,10 @@ namespace LMS.API.Controllers
                 return NotFound();
 
             var user = await _userManager.GetUserAsync(User);
+
+            if (course.Users?.Any(uc => uc.UserId == user.Id && uc.IsAdmin) == false)
+                return BadRequest();
+
             _applicationDbContext.Courses.Remove(course);
             await _applicationDbContext.SaveChangesAsync();
 
@@ -126,11 +129,17 @@ namespace LMS.API.Controllers
             if (course is null)
                 return NotFound();
 
-            var user = await _userManager.GetUserAsync(User);
-            if(course.Users?.Any(uc => uc.UserId == user.Id) == true)
+            if (course.Key != joinCourseDto.CourseKey)
                 return BadRequest();
 
-            _applicationDbContext.UserCourses.Add(
+            var user = await _userManager.GetUserAsync(User);
+            if (course.Users?.Any(uc => uc.UserId == user.Id) == true)
+                return BadRequest();
+
+            if (course.Users?.Any(uc => uc.UserId == user.Id) == true)
+                return BadRequest();
+
+            await _applicationDbContext.UserCourses.AddAsync(
                 new UserCourse
                 {
                     UserId = user.Id,
@@ -144,11 +153,14 @@ namespace LMS.API.Controllers
         }
 
         [HttpDelete("{id}/leave")]
-        public async Task<IActionResult> LeaveCourse(Guid id, [FromBody] JoinCourseDto joinCourseDto)
+        public async Task<IActionResult> LeaveCourse(Guid id, [FromBody] LeaveCourseDTO leaveCourseDTO)
         {
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
             if (course is null)
                 return NotFound();
+
+            if (course.Key != leaveCourseDTO.CourseKey)
+                return BadRequest();
 
             var user = await _userManager.GetUserAsync(User);
             if (course.Users?.Any(uc => uc.UserId == user.Id) == false)
@@ -158,7 +170,6 @@ namespace LMS.API.Controllers
                 .FirstOrDefaultAsync(uc => uc.UserId == user.Id & uc.CourseId == course.Id);
 
             _applicationDbContext.UserCourses.Remove(usercouerse);
-
             await _applicationDbContext.SaveChangesAsync();
 
             return Ok();
