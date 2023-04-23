@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using LMS.API.Models;
+﻿using LMS.API.Models;
 using LMS.API.Models.DTO;
 
 namespace LMS.API.Mappers

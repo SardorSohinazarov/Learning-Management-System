@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using LMS.API.Models;
 using LMS.API.Context;
 using LMS.API.Mappers;
+using LMS.API.Models;
 using LMS.API.Models.DTO;
 using Mapster;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Controllers
@@ -21,7 +21,7 @@ namespace LMS.API.Controllers
         private readonly ApplicationDbContext _applicationDbContext;
 
         public ProfileController(
-            UserManager<User> userManager, 
+            UserManager<User> userManager,
             ApplicationDbContext applicationDbContext)
         {
             _userManager = userManager;
@@ -49,7 +49,7 @@ namespace LMS.API.Controllers
             var tasks = course.Tasks;
             var userTasks = new List<UserTaskResultDTO>();
 
-            foreach(var task in tasks)
+            foreach (var task in tasks)
             {
                 var result = task.Adapt<UserTaskResultDTO>();
                 var userResultEntity = task.UserTasks?.FirstOrDefault(ut => ut.UserId == user.Id);
@@ -80,7 +80,7 @@ namespace LMS.API.Controllers
             var userTaskresult = await _applicationDbContext.UserTasks
                 .FirstOrDefaultAsync(ut => ut.UserId == user.Id && ut.TaskId == taskId);
 
-            if(userTaskresult is null)
+            if (userTaskresult is null)
             {
                 userTaskresult = new UserTask
                 {
@@ -88,12 +88,12 @@ namespace LMS.API.Controllers
                     TaskId = taskId,
                 };
 
-                await _applicationDbContext.UserTasks .AddAsync(userTaskresult);
+                await _applicationDbContext.UserTasks.AddAsync(userTaskresult);
             }
 
-            if(task.Course.Users.Any(u => u.IsAdmin && u.UserId == user.Id))
+            if (task.Course.Users.Any(u => u.IsAdmin && u.UserId == user.Id))
             {
-                if(userTaskresult.Status == EUserTaskStatus.Completed
+                if (userTaskresult.Status == EUserTaskStatus.Completed
                     && resultDto.Status is EUserTaskStatus.Accepted or EUserTaskStatus.Rejected)
                 {
                     userTaskresult.Status = resultDto.Status;

@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using LMS.API.Models;
 using LMS.API.Context;
 using LMS.API.Mappers;
+using LMS.API.Models;
 using LMS.API.Models.DTO;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Controllers
 {
@@ -129,14 +129,14 @@ namespace LMS.API.Controllers
             if (course is null)
                 return NotFound();
 
-            if(course.Key != joinCourseDto.CourseKey)
+            if (course.Key != joinCourseDto.CourseKey)
                 return BadRequest();
 
             var user = await _userManager.GetUserAsync(User);
-            if(course.Users?.Any(uc => uc.UserId == user.Id) == true)
+            if (course.Users?.Any(uc => uc.UserId == user.Id) == true)
                 return BadRequest();
-            
-            if(course.Users?.Any(uc => uc.UserId == user.Id) == true)
+
+            if (course.Users?.Any(uc => uc.UserId == user.Id) == true)
                 return BadRequest();
 
             await _applicationDbContext.UserCourses.AddAsync(
