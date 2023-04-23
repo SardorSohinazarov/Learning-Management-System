@@ -6,6 +6,7 @@ using LMS.API.Context;
 using LMS.API.Mappers;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -42,15 +43,27 @@ namespace LMS.API.Controllers
             if (course == null)
                 return NotFound();
 
-            if (!course.Users.Any(uc => uc.UserId == user.Id))
-                return BadRequest();
+            var tasks = course.Tasks;
+            var userTasks = new List<UserTaskResultDTO>();
 
-            var tasks = _applicationDbContext.Tasks.Select(t => t.ToDto()).ToList();
+            foreach(var task in tasks)
+            {
+                var result = task.Adapt<UserTaskResultDTO>();
+                var userResultEntity = task.UserTasks?.FirstOrDefault(ut => ut.UserId == user.Id);
 
-            return Ok(tasks);
+                result.UserResult = userResultEntity == null ? null : new UserTaskResult()
+                {
+                    Status = userResultEntity.Status,
+                    Description = userResultEntity.Description,
+                };
+
+                userTasks.Add(result);
+            }
+
+            return Ok(userTasks);
         }
 
-        [HttpPost("courses/{coursesId}/tasks/{taskId}")]
+        [HttpPost("courses/{courseId}/tasks/{taskId}")]
         public async Task<IActionResult> AddUserTaskResult(Guid courseId, Guid taskId, [FromBody] CreateUserTaskResultDto resultDto)
         {
             var task = await _applicationDbContext.Tasks

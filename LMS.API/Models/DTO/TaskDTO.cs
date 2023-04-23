@@ -12,5 +12,7 @@ namespace LMS.API.Models.DTO
         public DateTime? EndDate { get; set; }
         public int? MaxScore { get; set; }
         public ETaskStatus? Status { get; set; }
+
+        //public List<UserTaskResultDTO> userTaskResultDTOs { get; set; }
     }
 }

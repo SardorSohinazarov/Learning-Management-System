@@ -19,5 +19,6 @@ namespace LMS.API.Models
         [ForeignKey(nameof(CourseId))]
         public virtual Course? Course { get; set; }
         public virtual List<UserTask>? UserTasks { get; set; }
+        public virtual List<TaskComment>? Comments { get; set; }
     }
 }

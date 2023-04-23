@@ -15,5 +15,6 @@ namespace LMS.API.Context
         public DbSet<UserCourse> UserCourses { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<UserTask> UserTasks { get; set; }
+        public DbSet<TaskComment> TaskComments { get; set; }
     }
 }

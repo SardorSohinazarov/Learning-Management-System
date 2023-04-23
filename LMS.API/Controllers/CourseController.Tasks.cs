@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LMS.API.Mappers;
+using LMS.API.Models;
 using LMS.API.Models.DTO;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
@@ -80,10 +81,65 @@ namespace LMS.API.Controllers
             if(task is null)
                 return NotFound();
             
-            _applicationDbContext.Tasks.Remove(task);
+            _applicationDbContext.Remove(task);
             await _applicationDbContext.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpGet("{courseId}/tasks/{taskId}/results")]
+        public async Task<IActionResult> GetTaskResults(Guid courseId, Guid taskId)
+        {
+            var task = await _applicationDbContext.Tasks
+                .FirstOrDefaultAsync(t => t.Id == taskId && t.CourseId == courseId);
+
+            if(task is null)
+                return NotFound();
+
+            var taskDto = task.Adapt<UsersTaskResultsDTO>();
+
+            if(task.UserTasks is null)
+                return Ok(taskDto);
+            
+            foreach(var result in task.UserTasks)
+            {
+                taskDto.UsersResult ??= new List<UsersTaskResult>();
+                taskDto.UsersResult.Add(result.Adapt<UsersTaskResult>());
+            }
+
+            return Ok(taskDto);
+        }
+
+        [HttpPut("{courseId}/tasks/{taskId}/results/{resultId}")]
+        public async Task<IActionResult> UpdateUserResult(Guid courseId, Guid taskId, Guid resultId, CreateUserTaskResultDto resultDto)
+        {
+            var task = await _applicationDbContext.Tasks
+                .FirstOrDefaultAsync(t => t.Id == taskId && t.CourseId == courseId);
+
+            if (task is null)
+                return NotFound();
+
+            var result = task.UserTasks?
+                .FirstOrDefault(userTask => userTask.Id == resultId && userTask.TaskId == taskId);
+
+            if(result is null)
+                return NotFound();
+
+            /*if(result.Status == EUserTaskStatus.Completed 
+                && resultDto.Status is EUserTaskStatus.Accepted 
+                    or EUserTaskStatus.Rejected)
+            {
+                result.Status = resultDto.Status;
+                result.Description = resultDto.Description;
+            }*/
+
+            result.Status = resultDto.Status;
+            result.Description = resultDto.Description;
+
+
+            await _applicationDbContext.SaveChangesAsync();
+
+            return Ok(result.Adapt<UsersTaskResultsDTO>());
         }
     }
 }

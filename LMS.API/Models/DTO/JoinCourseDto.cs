@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LMS.API.Models.DTO
+﻿namespace LMS.API.Models.DTO
 {
     public class JoinCourseDto
     {
