@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using LMS.API.Models;
 using LMS.API.Context;
 using LMS.API.Mappers;
-using LMS.API.Models;
 using LMS.API.Models.DTO;
 using Mapster;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Controllers
@@ -20,7 +20,9 @@ namespace LMS.API.Controllers
         private readonly UserManager<User> _userManager;
         private readonly ApplicationDbContext _applicationDbContext;
 
-        public ProfileController(UserManager<User> userManager, ApplicationDbContext applicationDbContext)
+        public ProfileController(
+            UserManager<User> userManager, 
+            ApplicationDbContext applicationDbContext)
         {
             _userManager = userManager;
             _applicationDbContext = applicationDbContext;
@@ -31,6 +33,7 @@ namespace LMS.API.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             List<CourseDTO> courseDto = user.Courses.Select(usercourse => usercourse.Course.ToDto()).ToList();
+
             return Ok(courseDto);
         }
 
@@ -38,8 +41,8 @@ namespace LMS.API.Controllers
         public async Task<IActionResult> GetTasks(Guid coursesId)
         {
             var user = await _userManager.GetUserAsync(User);
-
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == coursesId);
+
             if (course == null)
                 return NotFound();
 
@@ -68,10 +71,12 @@ namespace LMS.API.Controllers
         {
             var task = await _applicationDbContext.Tasks
                 .FirstOrDefaultAsync(t => t.CourseId == courseId && t.Id == taskId);
+
             if (task is null)
                 return NotFound();
 
             var user = await _userManager.GetUserAsync(User);
+
             var userTaskresult = await _applicationDbContext.UserTasks
                 .FirstOrDefaultAsync(ut => ut.UserId == user.Id && ut.TaskId == taskId);
 
@@ -97,7 +102,6 @@ namespace LMS.API.Controllers
 
             userTaskresult.Description = resultDto.Description;
             userTaskresult.Status = resultDto.Status;
-
             await _applicationDbContext.SaveChangesAsync();
 
             return Ok();
