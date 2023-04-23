@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Castle.Core.Logging;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
 using Mapster;
@@ -7,8 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace LMS.API.Controllers
 {
@@ -18,16 +15,13 @@ namespace LMS.API.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly ILogger _logger;
 
         public AccountController(
             UserManager<User> userManager,
-            SignInManager<User> signInManager,
-            ILogger<AccountController> logger)
+            SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _logger = logger;
         }
 
         [HttpPost("signup")]
@@ -43,13 +37,9 @@ namespace LMS.API.Controllers
                 return BadRequest();
 
             var user = createUserDTO.Adapt<User>();
-            await _userManager.CreateAsync(user, createUserDTO.Password);
 
-            _logger.LogInformation("User saved to database");
-            
+            await _userManager.CreateAsync(user, createUserDTO.Password);
             await _signInManager.SignInAsync(user, isPersistent: true);
-            
-            _logger.LogInformation("User registred");
 
             return Ok();
         }
