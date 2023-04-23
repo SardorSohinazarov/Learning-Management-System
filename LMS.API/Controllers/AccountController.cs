@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace LMS.API.Controllers
 {
@@ -70,7 +72,9 @@ namespace LMS.API.Controllers
             if (user.UserName != UserName)
                 return NotFound();
 
-            return Ok(user.Adapt<UserDTO>());
+            var userDTO = user.Adapt<UserDTO>();
+
+            return Ok(userDTO);
         }
     }
 }
