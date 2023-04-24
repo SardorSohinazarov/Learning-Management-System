@@ -6,7 +6,9 @@ using LMS.API.Mappers;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
 using Mapster;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Controllers
@@ -97,6 +99,7 @@ namespace LMS.API.Controllers
         }
 
         [HttpGet("{courseId}/tasks/{taskId}/results")]
+        [ProducesResponseType(typeof(TaskDTO),StatusCodes.Status200OK)]
         public async Task<IActionResult> GetTaskResults(Guid courseId, Guid taskId)
         {
             var task = await _applicationDbContext.Tasks

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LMS.API.Context;
+using LMS.API.Filters;
 using LMS.API.Mappers;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
@@ -15,6 +16,8 @@ namespace LMS.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [TypeFilter(typeof(IsCourseExistsActionFilterAttribute))]
+    [TypeFilter(typeof(IsTaskExistsActionFilterAttribute))]
     public class ProfileController : ControllerBase
     {
         private readonly UserManager<User> _userManager;

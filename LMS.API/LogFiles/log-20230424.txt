@@ -43,3 +43,218 @@
 2023-04-24 17:50:50.866 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 640.6959ms
 2023-04-24 17:50:50.995 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
 2023-04-24 17:50:51.283 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 286.8939ms
+2023-04-24 17:59:52.265 +05:00 Application Starting
+2023-04-24 17:59:54.008 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 17:59:54.531 +05:00 Now listening on: https://localhost:5001
+2023-04-24 17:59:54.718 +05:00 Now listening on: http://localhost:5000
+2023-04-24 17:59:54.898 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 17:59:55.089 +05:00 Hosting environment: Development
+2023-04-24 17:59:55.287 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 17:59:55.330 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 17:59:55.839 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 17:59:55.839 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 508.7292ms
+2023-04-24 17:59:55.920 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 17:59:56.057 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 218.7841ms
+2023-04-24 17:59:56.240 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 320.1350ms
+2023-04-24 17:59:56.383 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 17:59:56.694 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 310.9558ms
+2023-04-24 18:13:23.776 +05:00 Application Starting
+2023-04-24 18:13:25.889 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 18:13:26.568 +05:00 Now listening on: https://localhost:5001
+2023-04-24 18:13:26.754 +05:00 Now listening on: http://localhost:5000
+2023-04-24 18:13:26.967 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 18:13:27.242 +05:00 Hosting environment: Development
+2023-04-24 18:13:27.537 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 18:13:27.683 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 18:13:28.557 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 18:13:28.558 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 876.3912ms
+2023-04-24 18:13:28.679 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 18:13:28.777 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 219.7769ms
+2023-04-24 18:13:28.958 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 278.6411ms
+2023-04-24 18:13:29.108 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 18:13:29.509 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 401.1956ms
+2023-04-24 18:15:05.918 +05:00 Application Starting
+2023-04-24 18:15:11.755 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 18:15:13.188 +05:00 Now listening on: https://localhost:5001
+2023-04-24 18:15:13.530 +05:00 Now listening on: http://localhost:5000
+2023-04-24 18:15:13.953 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 18:15:14.088 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 18:15:14.363 +05:00 Hosting environment: Development
+2023-04-24 18:15:15.180 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 18:15:15.399 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 1313.1944ms
+2023-04-24 18:15:15.847 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 18:15:15.943 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 18:15:16.114 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 267.2011ms
+2023-04-24 18:15:16.258 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 314.3998ms
+2023-04-24 18:15:17.248 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 18:15:17.929 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 681.3580ms
+2023-04-24 18:17:24.267 +05:00 Application Starting
+2023-04-24 18:17:28.612 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 18:17:29.757 +05:00 Now listening on: https://localhost:5001
+2023-04-24 18:17:30.392 +05:00 Now listening on: http://localhost:5000
+2023-04-24 18:17:30.805 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 18:17:31.053 +05:00 Hosting environment: Development
+2023-04-24 18:17:31.522 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 18:24:07.045 +05:00 Application Starting
+2023-04-24 18:24:07.838 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 18:24:08.176 +05:00 Now listening on: https://localhost:5001
+2023-04-24 18:24:08.198 +05:00 Now listening on: http://localhost:5000
+2023-04-24 18:24:08.203 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 18:24:08.213 +05:00 Hosting environment: Development
+2023-04-24 18:24:08.223 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 18:24:08.813 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 18:24:09.109 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 297.0818ms
+2023-04-24 18:24:09.113 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 18:24:09.153 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 41.3239ms
+2023-04-24 18:24:09.232 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 18:24:09.282 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.1309ms
+2023-04-24 18:24:09.576 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 18:24:09.728 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 152.7018ms
+2023-04-24 18:24:35.569 +05:00 Request starting HTTP/2 POST https://localhost:5001/api/Course application/json 21
+2023-04-24 18:24:35.672 +05:00 Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2023-04-24 18:24:35.797 +05:00 Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-04-24 18:24:35.840 +05:00 AuthenticationScheme: Identity.Application was challenged.
+2023-04-24 18:24:35.857 +05:00 Request finished HTTP/2 POST https://localhost:5001/api/Course application/json 21 - 302 0 - 288.3304ms
+2023-04-24 18:24:35.863 +05:00 Request starting HTTP/2 GET https://localhost:5001/Account/Login?ReturnUrl=%2Fapi%2FCourse - -
+2023-04-24 18:24:35.898 +05:00 Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2023-04-24 18:24:35.918 +05:00 Request finished HTTP/2 GET https://localhost:5001/Account/Login?ReturnUrl=%2Fapi%2FCourse - - - 404 0 - 55.1793ms
+2023-04-24 18:25:06.542 +05:00 Request starting HTTP/2 POST https://localhost:5001/api/Account/signin application/json 46
+2023-04-24 18:25:06.591 +05:00 Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2023-04-24 18:25:06.618 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.SignIn (LMS.API)'
+2023-04-24 18:25:06.735 +05:00 Route matched with {action = "SignIn", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(LMS.API.Models.DTO.SignInUserDTO) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-24 18:25:15.674 +05:00 Executed DbCommand (295ms) [Parameters=[@__signInUserDTO_UserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE [a].[UserName] = @__signInUserDTO_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 18:25:16.619 +05:00 Executed DbCommand (8ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-04-24 18:25:17.828 +05:00 Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-04-24 18:25:17.938 +05:00 Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-04-24 18:25:17.989 +05:00 AuthenticationScheme: Identity.Application signed in.
+2023-04-24 18:25:18.028 +05:00 Executing StatusCodeResult, setting HTTP status code 200
+2023-04-24 18:25:18.060 +05:00 Executed action LMS.API.Controllers.AccountController.SignIn (LMS.API) in 11294.8898ms
+2023-04-24 18:25:18.082 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.SignIn (LMS.API)'
+2023-04-24 18:25:18.125 +05:00 Request finished HTTP/2 POST https://localhost:5001/api/Account/signin application/json 46 - 200 0 - 11584.1325ms
+2023-04-24 18:25:21.325 +05:00 Request starting HTTP/2 POST https://localhost:5001/api/Course application/json 21
+2023-04-24 18:25:21.368 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.CreateCourse (LMS.API)'
+2023-04-24 18:25:21.402 +05:00 Route matched with {action = "CreateCourse", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCourse(LMS.API.Models.DTO.CreateCourseDTO) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 18:25:33.528 +05:00 Executed DbCommand (38ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 18:25:36.698 +05:00 Executed DbCommand (15ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Guid), @p4='?' (DbType = Guid), @p5='?' (DbType = Boolean), @p6='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Courses] ([Id], [Key], [Name])
+VALUES (@p0, @p1, @p2);
+INSERT INTO [UserCourses] ([Id], [CourseId], [IsAdmin], [UserId])
+VALUES (@p3, @p4, @p5, @p6);
+2023-04-24 18:25:37.773 +05:00 Executed DbCommand (4ms) [Parameters=[@__course_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__course_Id_0
+2023-04-24 18:25:54.078 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 18:25:54.229 +05:00 Executed action LMS.API.Controllers.CourseController.CreateCourse (LMS.API) in 32806.5804ms
+2023-04-24 18:25:54.245 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.CreateCourse (LMS.API)'
+2023-04-24 18:25:54.262 +05:00 Request finished HTTP/2 POST https://localhost:5001/api/Course application/json 21 - 200 - application/json;+charset=utf-8 32936.8793ms
+2023-04-24 18:26:16.590 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course - -
+2023-04-24 18:26:20.317 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 18:26:22.060 +05:00 Route matched with {action = "GetCourses", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourses() on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 18:26:26.766 +05:00 Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+2023-04-24 18:26:26.922 +05:00 Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 18:26:26.981 +05:00 Executed DbCommand (5ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 18:26:27.026 +05:00 Executed DbCommand (5ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 18:26:27.057 +05:00 Executed DbCommand (6ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 18:26:27.082 +05:00 Executed DbCommand (5ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 18:26:27.108 +05:00 Executed DbCommand (5ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 18:26:27.130 +05:00 Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 18:26:29.894 +05:00 Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LMS.API.Models.DTO.CourseDTO, LMS.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-04-24 18:26:44.996 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourses (LMS.API) in 22921.5062ms
+2023-04-24 18:26:45.014 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 18:26:45.029 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course - - - 200 - application/json;+charset=utf-8 28439.2997ms
+2023-04-24 18:27:03.965 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/53f32ceb-0a04-4fbc-27e0-08db42962c6a - -
+2023-04-24 18:27:04.028 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 18:27:04.084 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 18:27:11.686 +05:00 Executed DbCommand (7ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 18:27:14.268 +05:00 Executed DbCommand (7ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 18:27:15.526 +05:00 Executed DbCommand (6ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 18:27:17.526 +05:00 Executed DbCommand (6ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 18:27:17.553 +05:00 Executed DbCommand (6ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 18:27:19.318 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 18:27:21.875 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 17751.1031ms
+2023-04-24 18:27:21.893 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 18:27:21.911 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/53f32ceb-0a04-4fbc-27e0-08db42962c6a - - - 200 - application/json;+charset=utf-8 17946.2881ms
+2023-04-24 18:38:14.962 +05:00 Application Starting
+2023-04-24 18:38:15.974 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 18:38:16.526 +05:00 Now listening on: https://localhost:5001
+2023-04-24 18:38:16.564 +05:00 Now listening on: http://localhost:5000
+2023-04-24 18:38:16.575 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 18:38:16.606 +05:00 Hosting environment: Development
+2023-04-24 18:38:16.611 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 18:38:17.307 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 18:38:17.599 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 18:38:17.600 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 292.3886ms
+2023-04-24 18:38:17.626 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 26.3023ms
+2023-04-24 18:38:17.760 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 18:38:17.823 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.4016ms
+2023-04-24 18:38:18.167 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 18:38:18.380 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 213.7330ms
