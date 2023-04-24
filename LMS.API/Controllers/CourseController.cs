@@ -68,12 +68,12 @@ namespace LMS.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCourseById(Guid id)
+        public async Task<IActionResult> GetCourseById(Guid courseId)
         {
-            if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == id))
+            if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == courseId))
                 return NotFound();
 
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null)
                 return NotFound();
@@ -82,12 +82,12 @@ namespace LMS.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCourse(Guid id, [FromBody] UpdateCourseDTO updateCourseDTO)
+        public async Task<IActionResult> UpdateCourse(Guid courseId, [FromBody] UpdateCourseDTO updateCourseDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null)
                 return NotFound();
@@ -104,9 +104,9 @@ namespace LMS.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteCourse(Guid id)
+        public async Task<IActionResult> DeleteCourse(Guid courseId)
         {
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null)
                 return NotFound();
@@ -123,9 +123,9 @@ namespace LMS.API.Controllers
         }
 
         [HttpPost("{id}/join")]
-        public async Task<IActionResult> JoinCourse(Guid id, [FromBody] JoinCourseDto joinCourseDto)
+        public async Task<IActionResult> JoinCourse(Guid courseId, [FromBody] JoinCourseDto joinCourseDto)
         {
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course is null)
                 return NotFound();
 
@@ -153,9 +153,9 @@ namespace LMS.API.Controllers
         }
 
         [HttpDelete("{id}/leave")]
-        public async Task<IActionResult> LeaveCourse(Guid id, [FromBody] LeaveCourseDTO leaveCourseDTO)
+        public async Task<IActionResult> LeaveCourse(Guid courseId, [FromBody] LeaveCourseDTO leaveCourseDTO)
         {
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course is null)
                 return NotFound();
 
