@@ -67,7 +67,10 @@ namespace LMS.API.Controllers
         }
 
         [HttpPost("courses/{courseId}/tasks/{taskId}")]
-        public async Task<IActionResult> AddUserTaskResult(Guid courseId, Guid taskId, [FromBody] CreateUserTaskResultDto resultDto)
+        public async Task<IActionResult> AddUserTaskResult(
+            Guid courseId, 
+            Guid taskId, 
+            [FromBody] CreateUserTaskResultDto resultDto)
         {
             var task = await _applicationDbContext.Tasks
                 .FirstOrDefaultAsync(t => t.CourseId == courseId && t.Id == taskId);

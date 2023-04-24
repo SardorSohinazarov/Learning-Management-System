@@ -78,7 +78,7 @@ namespace LMS.API
                 .WriteTo.File(path: "LogFiles/log-.txt", rollingInterval: RollingInterval.Day,
                     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Message:lj}{NewLine}{Exception}")
                 .WriteTo.TeleSink(telegramApiKey: configuration.GetValue<string>("TelegramValues:telegramToken"),
-                                telegramChatId: configuration.GetValue<string>("TelegramValues:telegramChatId"))
+                    telegramChatId: configuration.GetValue<string>("TelegramValues:telegramChatId"))
             .CreateLogger();
 
             Log.Logger.Information("Application Starting");
