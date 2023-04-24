@@ -67,7 +67,7 @@ namespace LMS.API.Controllers
             return Ok(courseDTO);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{courseId}")]
         public async Task<IActionResult> GetCourseById(Guid courseId)
         {
             if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == courseId))
@@ -81,7 +81,7 @@ namespace LMS.API.Controllers
             return Ok(course?.ToDto());
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{courseId}")]
         public async Task<IActionResult> UpdateCourse(Guid courseId, [FromBody] UpdateCourseDTO updateCourseDTO)
         {
             if (!ModelState.IsValid)
@@ -122,7 +122,7 @@ namespace LMS.API.Controllers
             return Ok();
         }
 
-        [HttpPost("{id}/join")]
+        [HttpPost("{courseId}/join")]
         public async Task<IActionResult> JoinCourse(Guid courseId, [FromBody] JoinCourseDto joinCourseDto)
         {
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
@@ -152,7 +152,7 @@ namespace LMS.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}/leave")]
+        [HttpDelete("{courseId}/leave")]
         public async Task<IActionResult> LeaveCourse(Guid courseId, [FromBody] LeaveCourseDTO leaveCourseDTO)
         {
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);

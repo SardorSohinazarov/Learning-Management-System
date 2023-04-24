@@ -1,0 +1,45 @@
+2023-04-24 17:48:34.840 +05:00 Application Starting
+2023-04-24 17:48:38.151 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 17:48:38.910 +05:00 Now listening on: https://localhost:5001
+2023-04-24 17:48:39.176 +05:00 Now listening on: http://localhost:5000
+2023-04-24 17:48:39.408 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 17:48:39.587 +05:00 Hosting environment: Development
+2023-04-24 17:48:39.672 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 17:48:39.786 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 17:48:40.211 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 17:48:40.215 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 543.4139ms
+2023-04-24 17:48:40.301 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 17:48:40.428 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 217.0299ms
+2023-04-24 17:48:40.684 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 382.6282ms
+2023-04-24 17:48:40.790 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 17:48:41.051 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 260.4493ms
+2023-04-24 17:49:40.871 +05:00 Application Starting
+2023-04-24 17:49:43.127 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 17:49:44.327 +05:00 Now listening on: https://localhost:5001
+2023-04-24 17:49:44.564 +05:00 Now listening on: http://localhost:5000
+2023-04-24 17:49:44.732 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 17:49:44.986 +05:00 Hosting environment: Development
+2023-04-24 17:49:45.156 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 17:49:45.178 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 17:49:45.513 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 17:49:45.515 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 362.3911ms
+2023-04-24 17:49:45.609 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 17:49:45.723 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 210.2608ms
+2023-04-24 17:49:45.940 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 331.5644ms
+2023-04-24 17:49:46.051 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 17:49:46.410 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 358.7347ms
+2023-04-24 17:50:46.473 +05:00 Application Starting
+2023-04-24 17:50:47.656 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 17:50:48.125 +05:00 Now listening on: https://localhost:5001
+2023-04-24 17:50:48.293 +05:00 Now listening on: http://localhost:5000
+2023-04-24 17:50:48.457 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 17:50:48.614 +05:00 Hosting environment: Development
+2023-04-24 17:50:48.787 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 17:50:49.680 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 17:50:50.145 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 1357.7863ms
+2023-04-24 17:50:50.147 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 17:50:50.225 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 17:50:50.748 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 600.8351ms
+2023-04-24 17:50:50.866 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 640.6959ms
+2023-04-24 17:50:50.995 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 17:50:51.283 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 286.8939ms

@@ -37,11 +37,11 @@ namespace LMS.API.Controllers
             return Ok(courseDto);
         }
 
-        [HttpGet("courses/{coursesId}/tasks")]
-        public async Task<IActionResult> GetTasks(Guid coursesId)
+        [HttpGet("courses/{courseId}/tasks")]
+        public async Task<IActionResult> GetTasks(Guid courseId)
         {
             var user = await _userManager.GetUserAsync(User);
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == coursesId);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
 
             if (course == null)
                 return NotFound();
