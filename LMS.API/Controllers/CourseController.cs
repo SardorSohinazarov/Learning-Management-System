@@ -71,6 +71,7 @@ namespace LMS.API.Controllers
         }
 
         [HttpGet("{courseId}")]
+        [IsCourseUserOrAdmin(true)]
         public async Task<IActionResult> GetCourseById(Guid courseId)
         {
             if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == courseId))
