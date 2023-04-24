@@ -108,7 +108,7 @@ namespace LMS.API.Controllers
         }
 
         [HttpDelete]
-        [IsCourseUserOrAdmin(onlyAdmin:true)]
+        [IsCourseUserOrAdmin(onlyAdmin: true)]
         public async Task<IActionResult> DeleteCourse(Guid courseId)
         {
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);

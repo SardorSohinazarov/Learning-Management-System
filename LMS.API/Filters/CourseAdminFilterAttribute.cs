@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Flurl.Util;
 using LMS.API.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -34,7 +33,7 @@ namespace LMS.API.Filters
             var courseId = (Guid)context.ActionArguments["courseId"];
             var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
 
-            if(course is null)
+            if (course is null)
             {
                 context.Result = new NotFoundResult();
                 return;
@@ -42,18 +41,18 @@ namespace LMS.API.Filters
 
             var userCourse = course?.Users.FirstOrDefault(userCourse => userCourse.UserId.ToString() == userId);
 
-            if(userCourse is null)
+            if (userCourse is null)
             {
                 context.Result = new BadRequestResult();
                 return;
             }
 
-            if(OnlyAdmin && !userCourse.IsAdmin)
+            if (OnlyAdmin && !userCourse.IsAdmin)
             {
                 context.Result = new BadRequestResult();
                 return;
             }
- 
+
             await next();
         }
     }

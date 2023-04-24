@@ -24,7 +24,7 @@ namespace LMS.API.Filters
 
             var courseId = (Guid)context.ActionArguments["courseId"];
 
-            if(!await _context.Courses.AnyAsync(course => course.Id == courseId))
+            if (!await _context.Courses.AnyAsync(course => course.Id == courseId))
             {
                 context.Result = new NotFoundResult();
                 return;

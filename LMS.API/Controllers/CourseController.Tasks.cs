@@ -8,7 +8,6 @@ using LMS.API.Models.DTO;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Controllers
@@ -99,7 +98,7 @@ namespace LMS.API.Controllers
         }
 
         [HttpGet("{courseId}/tasks/{taskId}/results")]
-        [ProducesResponseType(typeof(TaskDTO),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TaskDTO), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetTaskResults(Guid courseId, Guid taskId)
         {
             var task = await _applicationDbContext.Tasks
@@ -124,9 +123,9 @@ namespace LMS.API.Controllers
 
         [HttpPut("{courseId}/tasks/{taskId}/results/{resultId}")]
         public async Task<IActionResult> UpdateUserResult(
-            Guid courseId, 
-            Guid taskId, 
-            Guid resultId, 
+            Guid courseId,
+            Guid taskId,
+            Guid resultId,
             CreateUserTaskResultDto resultDto)
         {
             var task = await _applicationDbContext.Tasks

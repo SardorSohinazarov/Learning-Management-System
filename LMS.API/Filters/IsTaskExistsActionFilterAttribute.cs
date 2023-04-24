@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LMS.API.Filters
 {
-    public class IsTaskExistsActionFilterAttribute: ActionFilterAttribute
+    public class IsTaskExistsActionFilterAttribute : ActionFilterAttribute
     {
         private readonly ApplicationDbContext _context;
 
@@ -16,7 +16,7 @@ namespace LMS.API.Filters
 
         public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            if(!context.ActionArguments.ContainsKey("taskId"))
+            if (!context.ActionArguments.ContainsKey("taskId"))
             {
                 await next();
                 return;
@@ -24,7 +24,7 @@ namespace LMS.API.Filters
 
             var taskId = (Guid)context.ActionArguments["taskId"];
 
-            if(! await _context.Tasks.AnyAsync(task => task.Id == taskId))
+            if (!await _context.Tasks.AnyAsync(task => task.Id == taskId))
             {
                 context.Result = new NotFoundResult();
                 return;

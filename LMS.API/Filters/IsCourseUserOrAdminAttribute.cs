@@ -7,7 +7,7 @@ namespace LMS.API.Filters
         public bool OnlyAdmin { get; set; }
 
         public IsCourseUserOrAdminAttribute(bool onlyAdmin = false)
-            :base(typeof(CourseAdminFilterAttribute))
+            : base(typeof(CourseAdminFilterAttribute))
         {
             Arguments = new object[] { onlyAdmin };
         }
