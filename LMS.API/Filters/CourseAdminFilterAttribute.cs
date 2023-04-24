@@ -32,7 +32,6 @@ namespace LMS.API.Filters
             var userClaims = context.HttpContext.User;
             var userId = userClaims.FindFirst(userClaim => userClaim.Type == ClaimTypes.NameIdentifier).Value;
             var courseId = (Guid)context.ActionArguments["courseId"];
-             
             var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
 
             if(course is null)

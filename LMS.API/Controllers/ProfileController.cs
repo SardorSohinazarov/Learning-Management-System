@@ -16,8 +16,6 @@ namespace LMS.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [TypeFilter(typeof(IsCourseExistsActionFilterAttribute))]
-    [TypeFilter(typeof(IsTaskExistsActionFilterAttribute))]
     public class ProfileController : ControllerBase
     {
         private readonly UserManager<User> _userManager;

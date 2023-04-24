@@ -71,7 +71,6 @@ namespace LMS.API.Controllers
         }
 
         [HttpGet("{courseId}")]
-        [IsCourseUserOrAdmin(true)]
         public async Task<IActionResult> GetCourseById(Guid courseId)
         {
             if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == courseId))
@@ -86,6 +85,7 @@ namespace LMS.API.Controllers
         }
 
         [HttpPut("{courseId}")]
+        [IsCourseUserOrAdmin(onlyAdmin: true)]
         public async Task<IActionResult> UpdateCourse(Guid courseId, [FromBody] UpdateCourseDTO updateCourseDTO)
         {
             if (!ModelState.IsValid)
@@ -108,6 +108,7 @@ namespace LMS.API.Controllers
         }
 
         [HttpDelete]
+        [IsCourseUserOrAdmin(onlyAdmin:true)]
         public async Task<IActionResult> DeleteCourse(Guid courseId)
         {
             var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);

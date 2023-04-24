@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using LMS.API.Context;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +11,8 @@ namespace LMS.API.Filters
     {
         private readonly ApplicationDbContext _context;
 
-        public IsCourseExistsActionFilterAttribute(ApplicationDbContext context)
-        {
+        public IsCourseExistsActionFilterAttribute(ApplicationDbContext context) =>
             _context = context;
-        }
 
         public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
@@ -26,6 +23,7 @@ namespace LMS.API.Filters
             }
 
             var courseId = (Guid)context.ActionArguments["courseId"];
+
             if(!await _context.Courses.AnyAsync(course => course.Id == courseId))
             {
                 context.Result = new NotFoundResult();

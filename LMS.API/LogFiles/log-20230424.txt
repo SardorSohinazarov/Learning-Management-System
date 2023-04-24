@@ -750,3 +750,608 @@ WHERE [u].[CourseId] = @__get_Item_0
 2023-04-24 22:01:06.080 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 25434.7161ms
 2023-04-24 22:01:06.101 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
 2023-04-24 22:01:06.119 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 400 - application/problem+json;+charset=utf-8 25535.2599ms
+2023-04-24 22:35:38.532 +05:00 Application Starting
+2023-04-24 22:35:41.921 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 22:35:42.906 +05:00 Now listening on: https://localhost:5001
+2023-04-24 22:35:43.114 +05:00 Now listening on: http://localhost:5000
+2023-04-24 22:35:43.312 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 22:35:43.486 +05:00 Hosting environment: Development
+2023-04-24 22:35:43.675 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 22:35:43.917 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 22:35:44.553 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 22:35:44.563 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 647.8398ms
+2023-04-24 22:35:44.810 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 22:35:44.820 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 266.5652ms
+2023-04-24 22:35:45.282 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 471.7234ms
+2023-04-24 22:35:45.429 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 22:35:45.994 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 565.3310ms
+2023-04-24 22:36:09.079 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course - -
+2023-04-24 22:36:13.736 +05:00 Executed DbCommand (81ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:36:14.181 +05:00 Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-04-24 22:36:14.415 +05:00 Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-04-24 22:36:14.687 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 22:36:14.917 +05:00 Route matched with {action = "GetCourses", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourses() on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:36:15.217 +05:00 Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+2023-04-24 22:36:15.550 +05:00 Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:36:16.031 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:36:16.291 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:36:16.486 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:36:16.739 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:36:17.039 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:36:17.301 +05:00 Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LMS.API.Models.DTO.CourseDTO, LMS.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-04-24 22:36:17.555 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourses (LMS.API) in 2392.767ms
+2023-04-24 22:36:17.802 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 22:36:18.015 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course - - - 200 - application/json;+charset=utf-8 8935.8211ms
+2023-04-24 22:36:41.923 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/53f32ceb-0a04-4fbc-27e0-08db42962c6a - -
+2023-04-24 22:36:42.253 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:36:42.865 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:36:43.356 +05:00 Executed DbCommand (5ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:36:49.013 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:36:49.272 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:36:49.486 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:36:49.675 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:36:49.934 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:36:50.228 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:36:50.444 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 7246.2456ms
+2023-04-24 22:36:50.640 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:36:50.828 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/53f32ceb-0a04-4fbc-27e0-08db42962c6a - - - 200 - application/json;+charset=utf-8 8926.4844ms
+2023-04-24 22:37:20.734 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:37:21.095 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:37:21.319 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:37:21.671 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:37:22.141 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:37:22.554 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:37:22.851 +05:00 Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-04-24 22:37:23.308 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 1678.3317ms
+2023-04-24 22:37:23.713 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:37:23.947 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 400 - application/problem+json;+charset=utf-8 3212.9490ms
+2023-04-24 22:38:18.193 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:38:18.415 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:38:18.625 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:38:18.832 +05:00 Executed DbCommand (4ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:38:19.044 +05:00 Executed DbCommand (1ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:38:19.245 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:38:19.433 +05:00 Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-04-24 22:38:19.607 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 782.97ms
+2023-04-24 22:38:19.796 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:38:20.000 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 400 - application/problem+json;+charset=utf-8 1807.1130ms
+2023-04-24 22:38:25.337 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:38:25.551 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:38:25.743 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:38:25.932 +05:00 Executed DbCommand (4ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:38:36.926 +05:00 Executed DbCommand (1ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:38:39.702 +05:00 Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:39:06.011 +05:00 Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-04-24 22:39:06.207 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 40282.6341ms
+2023-04-24 22:39:06.412 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:39:06.585 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 400 - application/problem+json;+charset=utf-8 41247.8706ms
+2023-04-24 22:39:21.793 +05:00 Application Starting
+2023-04-24 22:39:23.412 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 22:39:24.127 +05:00 Now listening on: https://localhost:5001
+2023-04-24 22:39:24.339 +05:00 Now listening on: http://localhost:5000
+2023-04-24 22:39:24.534 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 22:39:24.770 +05:00 Hosting environment: Development
+2023-04-24 22:39:24.775 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 22:39:24.946 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 22:39:25.477 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 22:39:25.484 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 709.0457ms
+2023-04-24 22:39:25.684 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 208.5988ms
+2023-04-24 22:39:25.696 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 22:39:26.048 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 353.4315ms
+2023-04-24 22:39:26.138 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 22:39:26.478 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 339.3653ms
+2023-04-24 22:39:36.853 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:39:37.880 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:39:38.298 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:39:42.834 +05:00 Executed DbCommand (167ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:55:30.814 +05:00 Executed DbCommand (9ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:55:33.092 +05:00 Executed DbCommand (14ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:55:35.335 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:55:35.577 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:55:36.106 +05:00 Executed DbCommand (5ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:55:36.802 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:55:40.908 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:55:45.917 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 967433.7374ms
+2023-04-24 22:55:46.720 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:55:47.060 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 0 - application/json;+charset=utf-8 970208.0963ms
+2023-04-24 22:56:02.368 +05:00 Application Starting
+2023-04-24 22:56:05.194 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 22:56:07.929 +05:00 Now listening on: https://localhost:5001
+2023-04-24 22:56:08.245 +05:00 Now listening on: http://localhost:5000
+2023-04-24 22:56:08.556 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 22:56:08.727 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 22:56:08.741 +05:00 Hosting environment: Development
+2023-04-24 22:56:09.368 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 22:56:09.635 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 22:56:09.646 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 917.9120ms
+2023-04-24 22:56:09.877 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 22:56:09.967 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 332.2072ms
+2023-04-24 22:56:10.265 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 388.1134ms
+2023-04-24 22:56:10.543 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 22:56:11.323 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 780.6968ms
+2023-04-24 22:56:35.169 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course - -
+2023-04-24 22:56:36.115 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 22:56:36.795 +05:00 Route matched with {action = "GetCourses", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourses() on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:56:41.509 +05:00 Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+2023-04-24 22:56:42.846 +05:00 Executed DbCommand (64ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:56:44.057 +05:00 Executed DbCommand (7ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:56:44.824 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:56:45.239 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:56:45.955 +05:00 Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:56:46.668 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:56:47.381 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:56:47.889 +05:00 Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LMS.API.Models.DTO.CourseDTO, LMS.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-04-24 22:56:48.871 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourses (LMS.API) in 11550.5985ms
+2023-04-24 22:56:49.497 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 22:56:49.933 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course - - - 200 - application/json;+charset=utf-8 14763.5934ms
+2023-04-24 22:57:13.197 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/53f32ceb-0a04-4fbc-27e0-08db42962c6a - -
+2023-04-24 22:57:13.742 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:57:14.070 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:57:14.986 +05:00 Executed DbCommand (9ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:57:15.452 +05:00 Executed DbCommand (5ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:57:15.719 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:57:15.971 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:57:16.442 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:57:17.044 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:57:17.761 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:57:18.204 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 3369.045ms
+2023-04-24 22:57:18.882 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:57:19.300 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/53f32ceb-0a04-4fbc-27e0-08db42962c6a - - - 200 - application/json;+charset=utf-8 6102.5633ms
+2023-04-24 22:57:36.698 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:57:37.476 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:57:37.795 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:57:38.296 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:57:38.653 +05:00 Executed DbCommand (4ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:57:39.162 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:57:39.676 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:57:40.505 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:57:41.107 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:57:41.554 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:57:41.859 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:57:42.313 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 4216.8199ms
+2023-04-24 22:57:43.053 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:57:43.782 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 200 - application/json;+charset=utf-8 7084.5069ms
+2023-04-24 22:57:46.480 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:57:47.147 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:57:47.428 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:57:47.680 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:57:47.892 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:57:48.354 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:57:48.789 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:57:49.399 +05:00 Executed DbCommand (1ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:57:49.639 +05:00 Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:57:49.965 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:57:50.221 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:57:50.443 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 2770.8433ms
+2023-04-24 22:57:50.697 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:57:50.982 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 200 - application/json;+charset=utf-8 4501.8869ms
+2023-04-24 22:58:09.890 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:58:10.293 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:58:10.873 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:58:11.470 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:58:11.727 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:58:12.156 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:58:12.442 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:58:13.057 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:58:13.467 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:58:14.161 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:58:14.795 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:58:15.100 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 3638.6895ms
+2023-04-24 22:58:15.769 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:58:16.439 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 200 - application/json;+charset=utf-8 6549.8160ms
+2023-04-24 22:59:07.898 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - -
+2023-04-24 22:59:08.659 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:59:09.169 +05:00 Route matched with {action = "GetCourseById", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourseById(System.Guid) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 22:59:09.484 +05:00 Executed DbCommand (3ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:59:09.787 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:59:10.070 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 22:59:10.402 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 22:59:10.672 +05:00 Executed DbCommand (2ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 22:59:11.014 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:59:11.529 +05:00 Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 22:59:11.943 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 22:59:12.338 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourseById (LMS.API) in 2860.2486ms
+2023-04-24 22:59:12.546 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourseById (LMS.API)'
+2023-04-24 22:59:13.363 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 - - - 200 - application/json;+charset=utf-8 5477.3922ms
+2023-04-24 23:01:56.963 +05:00 Application Starting
+2023-04-24 23:02:00.602 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-24 23:02:01.855 +05:00 Now listening on: https://localhost:5001
+2023-04-24 23:02:02.636 +05:00 Now listening on: http://localhost:5000
+2023-04-24 23:02:02.647 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-24 23:02:03.167 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-24 23:02:03.973 +05:00 Hosting environment: Development
+2023-04-24 23:02:04.129 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-24 23:02:04.144 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 1497.8810ms
+2023-04-24 23:02:04.324 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-24 23:02:04.357 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-24 23:02:04.619 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 489.6119ms
+2023-04-24 23:02:04.931 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 606.5928ms
+2023-04-24 23:02:05.174 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-24 23:02:05.839 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 664.7860ms
+2023-04-24 23:02:36.589 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Course - -
+2023-04-24 23:02:37.846 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 23:02:38.449 +05:00 Route matched with {action = "GetCourses", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCourses() on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 23:02:43.107 +05:00 Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+2023-04-24 23:02:44.322 +05:00 Executed DbCommand (53ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:02:45.153 +05:00 Executed DbCommand (7ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 23:02:45.930 +05:00 Executed DbCommand (4ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:02:46.542 +05:00 Executed DbCommand (7ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:02:47.170 +05:00 Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 23:02:47.563 +05:00 Executed DbCommand (5ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:02:48.211 +05:00 Executed DbCommand (6ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:02:48.851 +05:00 Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LMS.API.Models.DTO.CourseDTO, LMS.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-04-24 23:02:49.388 +05:00 Executed action LMS.API.Controllers.CourseController.GetCourses (LMS.API) in 10556.4033ms
+2023-04-24 23:02:49.739 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.GetCourses (LMS.API)'
+2023-04-24 23:02:50.176 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Course - - - 200 - application/json;+charset=utf-8 13586.7635ms
+2023-04-24 23:03:42.802 +05:00 Request starting HTTP/2 PUT https://localhost:5001/api/Course/697c6413-f7b9-4cab-b68b-08db44c7632d application/json 30
+2023-04-24 23:03:43.583 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.UpdateCourse (LMS.API)'
+2023-04-24 23:03:43.965 +05:00 Route matched with {action = "UpdateCourse", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCourse(System.Guid, LMS.API.Models.DTO.UpdateCourseDTO) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 23:03:44.620 +05:00 Executed DbCommand (11ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 23:03:44.885 +05:00 Executed DbCommand (4ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 23:03:45.502 +05:00 Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:03:45.819 +05:00 Executed DbCommand (4ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 23:03:46.097 +05:00 Executed DbCommand (6ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-24 23:03:47.082 +05:00 Executed DbCommand (32ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Courses] SET [Name] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2023-04-24 23:03:47.855 +05:00 Executing OkObjectResult, writing value of type 'LMS.API.Models.DTO.CourseDTO'.
+2023-04-24 23:03:48.309 +05:00 Executed action LMS.API.Controllers.CourseController.UpdateCourse (LMS.API) in 3887.4871ms
+2023-04-24 23:03:48.925 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.UpdateCourse (LMS.API)'
+2023-04-24 23:03:49.541 +05:00 Request finished HTTP/2 PUT https://localhost:5001/api/Course/697c6413-f7b9-4cab-b68b-08db44c7632d application/json 30 - 200 - application/json;+charset=utf-8 6738.7085ms
+2023-04-24 23:04:18.683 +05:00 Request starting HTTP/2 PUT https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 application/json 30
+2023-04-24 23:04:19.246 +05:00 Executing endpoint 'LMS.API.Controllers.CourseController.UpdateCourse (LMS.API)'
+2023-04-24 23:04:19.445 +05:00 Route matched with {action = "UpdateCourse", controller = "Course"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCourse(System.Guid, LMS.API.Models.DTO.UpdateCourseDTO) on controller LMS.API.Controllers.CourseController (LMS.API).
+2023-04-24 23:04:19.924 +05:00 Executed DbCommand (5ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Courses] AS [c]
+        WHERE [c].[Id] = @__courseId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-24 23:04:20.264 +05:00 Executed DbCommand (5ms) [Parameters=[@__courseId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Key], [c].[Name]
+FROM [Courses] AS [c]
+WHERE [c].[Id] = @__courseId_0
+2023-04-24 23:04:21.044 +05:00 Executed DbCommand (6ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CourseId], [u].[IsAdmin], [u].[UserId]
+FROM [UserCourses] AS [u]
+WHERE [u].[CourseId] = @__get_Item_0
+2023-04-24 23:04:21.815 +05:00 Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-04-24 23:04:22.114 +05:00 Executed action LMS.API.Controllers.CourseController.UpdateCourse (LMS.API) in 2365.0418ms
+2023-04-24 23:04:22.819 +05:00 Executed endpoint 'LMS.API.Controllers.CourseController.UpdateCourse (LMS.API)'
+2023-04-24 23:04:23.435 +05:00 Request finished HTTP/2 PUT https://localhost:5001/api/Course/0d5c5403-4028-4525-d8fb-08db429eb646 application/json 30 - 400 - application/problem+json;+charset=utf-8 4751.3891ms

@@ -11,10 +11,8 @@ namespace LMS.API.Filters
     {
         private readonly ApplicationDbContext _context;
 
-        public IsTaskExistsActionFilterAttribute(ApplicationDbContext context)
-        {
+        public IsTaskExistsActionFilterAttribute(ApplicationDbContext context) =>
             _context = context;
-        }
 
         public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
