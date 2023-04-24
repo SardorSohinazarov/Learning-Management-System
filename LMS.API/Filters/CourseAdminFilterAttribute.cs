@@ -21,7 +21,7 @@ namespace LMS.API.Filters
             OnlyAdmin = onlyAdmin;
         }
 
-        public override async Task (ActionExecutingContext context, ActionExecutionDelegate next)
+        public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             if (!context.ActionArguments.ContainsKey("courseId"))
             {
