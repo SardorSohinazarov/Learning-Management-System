@@ -17,7 +17,7 @@ namespace LMS.API.Controllers
         {
             var task = await _applicationDbContext.Tasks
                 .FirstOrDefaultAsync(t => t.Id == taskId && t.CourseId == courseId);
-           
+
             if (task == null)
                 return NotFound();
 

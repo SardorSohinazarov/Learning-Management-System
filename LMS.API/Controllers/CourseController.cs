@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LMS.API.Context;
+using LMS.API.Filters;
 using LMS.API.Mappers;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
@@ -16,6 +17,8 @@ namespace LMS.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [TypeFilter(typeof(IsCourseExistsActionFilterAttribute))]
+    [TypeFilter(typeof(IsTaskExistsActionFilterAttribute))]
     public partial class CourseController : ControllerBase
     {
         private readonly ApplicationDbContext _applicationDbContext;
@@ -67,13 +70,13 @@ namespace LMS.API.Controllers
             return Ok(courseDTO);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCourseById(Guid id)
+        [HttpGet("{courseId}")]
+        public async Task<IActionResult> GetCourseById(Guid courseId)
         {
-            if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == id))
+            if (!await _applicationDbContext.Courses.AnyAsync(course => course.Id == courseId))
                 return NotFound();
 
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null)
                 return NotFound();
@@ -81,13 +84,14 @@ namespace LMS.API.Controllers
             return Ok(course?.ToDto());
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCourse(Guid id, [FromBody] UpdateCourseDTO updateCourseDTO)
+        [HttpPut("{courseId}")]
+        [IsCourseUserOrAdmin(onlyAdmin: true)]
+        public async Task<IActionResult> UpdateCourse(Guid courseId, [FromBody] UpdateCourseDTO updateCourseDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null)
                 return NotFound();
@@ -104,9 +108,10 @@ namespace LMS.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteCourse(Guid id)
+        [IsCourseUserOrAdmin(onlyAdmin: true)]
+        public async Task<IActionResult> DeleteCourse(Guid courseId)
         {
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null)
                 return NotFound();
@@ -122,10 +127,10 @@ namespace LMS.API.Controllers
             return Ok();
         }
 
-        [HttpPost("{id}/join")]
-        public async Task<IActionResult> JoinCourse(Guid id, [FromBody] JoinCourseDto joinCourseDto)
+        [HttpPost("{courseId}/join")]
+        public async Task<IActionResult> JoinCourse(Guid courseId, [FromBody] JoinCourseDto joinCourseDto)
         {
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course is null)
                 return NotFound();
 
@@ -152,10 +157,10 @@ namespace LMS.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}/leave")]
-        public async Task<IActionResult> LeaveCourse(Guid id, [FromBody] LeaveCourseDTO leaveCourseDTO)
+        [HttpDelete("{courseId}/leave")]
+        public async Task<IActionResult> LeaveCourse(Guid courseId, [FromBody] LeaveCourseDTO leaveCourseDTO)
         {
-            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            var course = await _applicationDbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course is null)
                 return NotFound();
 
