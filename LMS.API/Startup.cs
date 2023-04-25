@@ -21,6 +21,19 @@ namespace LMS.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.DefaultPolicyName = "AllOrigin";
+                options.AddPolicy("AllOrigin",corsPolicyBuilder =>
+                {
+                    corsPolicyBuilder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
+
             AddLoggingOptions(this.Configuration);
             AddDbContextOptions(services);
             AddIdentityOptions(services);
@@ -41,6 +54,7 @@ namespace LMS.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LMS.API v1"));
             }
 
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseRouting();
