@@ -1,0 +1,314 @@
+2023-04-26 00:13:34.554 +05:00 Application Starting
+2023-04-26 00:13:38.794 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 00:13:39.919 +05:00 Now listening on: https://localhost:5001
+2023-04-26 00:13:40.132 +05:00 Now listening on: http://localhost:5000
+2023-04-26 00:13:40.310 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 00:13:40.507 +05:00 Hosting environment: Development
+2023-04-26 00:13:40.708 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 00:13:45.172 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:13:46.129 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 957.8466ms
+2023-04-26 00:13:46.578 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:13:46.654 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:13:46.760 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 181.8721ms
+2023-04-26 00:13:47.121 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 466.3378ms
+2023-04-26 00:13:48.604 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:13:49.007 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 403.0085ms
+2023-04-26 00:17:33.609 +05:00 Request starting HTTP/2 POST https://localhost:5001/api/Account/signin application/json 46
+2023-04-26 00:17:41.762 +05:00 Executed DbCommand (405ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-26 00:17:42.375 +05:00 Executed DbCommand (7ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-04-26 00:17:42.707 +05:00 Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-04-26 00:17:43.014 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.SignIn (LMS.API)'
+2023-04-26 00:17:43.262 +05:00 Route matched with {action = "SignIn", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(LMS.API.Models.DTO.SignInUserDTO) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:17:43.612 +05:00 Executed DbCommand (4ms) [Parameters=[@__signInUserDTO_UserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE [a].[UserName] = @__signInUserDTO_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-26 00:17:43.837 +05:00 Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-04-26 00:17:44.322 +05:00 Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-04-26 00:17:44.517 +05:00 Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-04-26 00:17:44.706 +05:00 AuthenticationScheme: Identity.Application signed in.
+2023-04-26 00:17:44.915 +05:00 Executing StatusCodeResult, setting HTTP status code 200
+2023-04-26 00:17:45.089 +05:00 Executed action LMS.API.Controllers.AccountController.SignIn (LMS.API) in 1556.5929ms
+2023-04-26 00:17:45.261 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.SignIn (LMS.API)'
+2023-04-26 00:17:45.449 +05:00 Request finished HTTP/2 POST https://localhost:5001/api/Account/signin application/json 46 - 200 0 - 11840.7015ms
+2023-04-26 00:18:41.270 +05:00 Request starting HTTP/2 POST https://localhost:5001/api/Account/signin application/json 46
+2023-04-26 00:18:41.528 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.SignIn (LMS.API)'
+2023-04-26 00:18:41.743 +05:00 Route matched with {action = "SignIn", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(LMS.API.Models.DTO.SignInUserDTO) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:18:42.136 +05:00 Executed DbCommand (5ms) [Parameters=[@__signInUserDTO_UserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE [a].[UserName] = @__signInUserDTO_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-26 00:18:42.332 +05:00 Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-04-26 00:18:42.679 +05:00 Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-04-26 00:18:42.900 +05:00 Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-04-26 00:18:43.205 +05:00 AuthenticationScheme: Identity.Application signed in.
+2023-04-26 00:18:43.443 +05:00 Executing StatusCodeResult, setting HTTP status code 200
+2023-04-26 00:18:43.659 +05:00 Executed action LMS.API.Controllers.AccountController.SignIn (LMS.API) in 1683.1143ms
+2023-04-26 00:18:43.824 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.SignIn (LMS.API)'
+2023-04-26 00:18:44.002 +05:00 Request finished HTTP/2 POST https://localhost:5001/api/Account/signin application/json 46 - 200 0 - 2731.8998ms
+2023-04-26 00:20:06.268 +05:00 Application Starting
+2023-04-26 00:20:11.538 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 00:20:13.396 +05:00 Now listening on: https://localhost:5001
+2023-04-26 00:20:13.806 +05:00 Now listening on: http://localhost:5000
+2023-04-26 00:20:14.077 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 00:20:14.296 +05:00 Hosting environment: Development
+2023-04-26 00:20:14.407 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:20:14.523 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 00:20:15.159 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 753.5678ms
+2023-04-26 00:20:15.433 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:20:15.457 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:20:15.725 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 292.2971ms
+2023-04-26 00:20:15.766 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 309.6039ms
+2023-04-26 00:20:16.588 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:20:17.169 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 580.2269ms
+2023-04-26 00:22:13.003 +05:00 Application Starting
+2023-04-26 00:22:17.289 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 00:22:17.990 +05:00 Now listening on: https://localhost:5001
+2023-04-26 00:22:18.158 +05:00 Now listening on: http://localhost:5000
+2023-04-26 00:22:18.338 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 00:22:18.500 +05:00 Hosting environment: Development
+2023-04-26 00:22:18.678 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 00:22:19.373 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:22:20.021 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:22:20.027 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 657.3165ms
+2023-04-26 00:22:20.166 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:22:20.223 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 201.5874ms
+2023-04-26 00:22:20.708 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 542.3744ms
+2023-04-26 00:22:20.765 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:22:21.369 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 603.4272ms
+2023-04-26 00:29:45.102 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:29:47.348 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 2246.4143ms
+2023-04-26 00:29:47.422 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:29:47.481 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:29:47.876 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 455.4553ms
+2023-04-26 00:29:48.199 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 718.1695ms
+2023-04-26 00:29:48.298 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:29:48.508 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 209.7554ms
+2023-04-26 00:30:25.743 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer application/json -
+2023-04-26 00:30:26.639 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:30:27.175 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:30:27.586 +05:00 Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-04-26 00:30:28.132 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 585.5117ms
+2023-04-26 00:30:28.624 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:30:29.228 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer application/json - - 400 - application/problem+json;+charset=utf-8 3485.3210ms
+2023-04-26 00:30:40.559 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer application/json -
+2023-04-26 00:30:41.117 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:30:42.304 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:30:42.958 +05:00 Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-04-26 00:30:43.308 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 352.7714ms
+2023-04-26 00:30:43.778 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:30:44.307 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer application/json - - 400 - application/problem+json;+charset=utf-8 3747.9518ms
+2023-04-26 00:33:25.408 +05:00 Application Starting
+2023-04-26 00:33:27.941 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 00:33:28.648 +05:00 Now listening on: https://localhost:5001
+2023-04-26 00:33:29.250 +05:00 Now listening on: http://localhost:5000
+2023-04-26 00:33:29.553 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 00:33:29.831 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:33:29.864 +05:00 Hosting environment: Development
+2023-04-26 00:33:30.239 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:33:30.239 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 409.7844ms
+2023-04-26 00:33:30.258 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 00:33:30.369 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:33:30.537 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 298.0521ms
+2023-04-26 00:33:30.788 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 418.8729ms
+2023-04-26 00:33:30.855 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:33:31.175 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 319.6015ms
+2023-04-26 00:33:39.180 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer - -
+2023-04-26 00:33:40.203 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:33:40.589 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:33:57.488 +05:00 Executed DbCommand (134ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 00:34:06.323 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 00:34:06.845 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 25715.2687ms
+2023-04-26 00:34:07.351 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:34:07.948 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer - - - 200 - text/plain;+charset=utf-8 28767.8237ms
+2023-04-26 00:35:24.604 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=en - -
+2023-04-26 00:35:26.433 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:35:26.610 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:35:31.680 +05:00 Executed DbCommand (12ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 00:35:35.168 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 00:35:35.418 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 8587.1675ms
+2023-04-26 00:35:35.619 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:35:35.826 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=en - - - 200 - text/plain;+charset=utf-8 11222.2026ms
+2023-04-26 00:35:45.054 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=uz - -
+2023-04-26 00:35:45.507 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:35:45.961 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:35:46.635 +05:00 Executed DbCommand (7ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 00:35:46.850 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 00:35:47.857 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 1408.0217ms
+2023-04-26 00:35:48.253 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:35:48.963 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=uz - - - 200 - text/plain;+charset=utf-8 3909.5118ms
+2023-04-26 00:36:03.357 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=uz - -
+2023-04-26 00:36:03.782 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:36:04.189 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:36:15.028 +05:00 Executed DbCommand (3ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 00:46:12.674 +05:00 Application Starting
+2023-04-26 00:46:15.773 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 00:46:17.178 +05:00 Now listening on: https://localhost:5001
+2023-04-26 00:46:17.674 +05:00 Now listening on: http://localhost:5000
+2023-04-26 00:46:18.215 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 00:46:18.480 +05:00 Hosting environment: Development
+2023-04-26 00:46:18.591 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:46:18.780 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 00:46:19.393 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:46:19.401 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 814.3733ms
+2023-04-26 00:46:19.535 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:46:19.598 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 205.0192ms
+2023-04-26 00:46:19.827 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 291.9506ms
+2023-04-26 00:46:19.904 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:46:20.433 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 528.9467ms
+2023-04-26 00:46:28.218 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer - -
+2023-04-26 00:46:29.183 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:46:29.842 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:47:28.410 +05:00 Application Starting
+2023-04-26 00:47:31.756 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 00:47:33.103 +05:00 Now listening on: https://localhost:5001
+2023-04-26 00:47:33.462 +05:00 Now listening on: http://localhost:5000
+2023-04-26 00:47:33.868 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 00:47:34.110 +05:00 Hosting environment: Development
+2023-04-26 00:47:34.149 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 00:47:34.284 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 00:47:34.772 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 625.5982ms
+2023-04-26 00:47:34.776 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 00:47:34.885 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 00:47:34.991 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 215.4653ms
+2023-04-26 00:47:35.277 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 391.9649ms
+2023-04-26 00:47:35.340 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 00:47:35.831 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 491.1312ms
+2023-04-26 00:47:40.428 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer - -
+2023-04-26 00:47:41.724 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:47:42.100 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:47:48.582 +05:00 Executed DbCommand (117ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 00:47:49.116 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 00:47:49.452 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 7019.7251ms
+2023-04-26 00:47:50.283 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:47:50.639 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer - - - 200 - text/plain;+charset=utf-8 10210.3150ms
+2023-04-26 00:48:19.200 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=ru - -
+2023-04-26 00:48:19.537 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:48:19.866 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 00:48:23.110 +05:00 Executed DbCommand (12ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 00:48:23.464 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 00:48:24.481 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 4070.7461ms
+2023-04-26 00:48:24.804 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 00:48:25.133 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer?culture=ru - - - 200 - text/plain;+charset=utf-8 5933.3069ms
+2023-04-26 00:48:25.831 +05:00 Request starting HTTP/2 GET https://localhost:5001/favicon.ico - -
+2023-04-26 00:48:26.308 +05:00 Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 404 0 - 477.2124ms
+2023-04-26 01:12:34.287 +05:00 Application Starting
+2023-04-26 01:12:39.221 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 01:12:40.308 +05:00 Now listening on: https://localhost:5001
+2023-04-26 01:12:40.774 +05:00 Now listening on: http://localhost:5000
+2023-04-26 01:12:41.391 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 01:12:41.651 +05:00 Hosting environment: Development
+2023-04-26 01:12:41.902 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 01:12:41.971 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 01:12:42.553 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 01:12:42.554 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 588.1084ms
+2023-04-26 01:12:42.676 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 01:12:42.743 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 189.5585ms
+2023-04-26 01:12:43.021 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 345.3611ms
+2023-04-26 01:12:43.125 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 01:12:43.525 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 400.2282ms
+2023-04-26 01:15:10.441 +05:00 Application Starting
+2023-04-26 01:15:13.330 +05:00 User profile is available. Using 'C:\Users\Sardor Sohinazarov\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-26 01:15:14.379 +05:00 Now listening on: https://localhost:5001
+2023-04-26 01:15:14.889 +05:00 Now listening on: http://localhost:5000
+2023-04-26 01:15:15.270 +05:00 Application started. Press Ctrl+C to shut down.
+2023-04-26 01:15:15.530 +05:00 Hosting environment: Development
+2023-04-26 01:15:15.582 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2023-04-26 01:15:15.752 +05:00 Content root path: D:\Projects\LMS\LMS.API
+2023-04-26 01:15:16.296 +05:00 Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2023-04-26 01:15:16.300 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 719.8342ms
+2023-04-26 01:15:16.415 +05:00 Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - -
+2023-04-26 01:15:16.498 +05:00 Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 201.2479ms
+2023-04-26 01:15:16.695 +05:00 Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 280.2708ms
+2023-04-26 01:15:16.839 +05:00 Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2023-04-26 01:15:17.162 +05:00 Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 323.0104ms
+2023-04-26 01:15:22.522 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer - -
+2023-04-26 01:15:28.373 +05:00 Executed DbCommand (124ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__get_Item_0
+2023-04-26 01:15:28.991 +05:00 Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2023-04-26 01:15:29.299 +05:00 Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2023-04-26 01:15:29.545 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 01:15:29.920 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 01:15:38.018 +05:00 Executed DbCommand (4ms) [Parameters=[@__key_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [l].[Key], [l].[En], [l].[Ru], [l].[Uz]
+FROM [LocalizedStrings] AS [l]
+WHERE [l].[Key] = @__key_0
+2023-04-26 01:15:41.210 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 01:15:41.556 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 11452.5714ms
+2023-04-26 01:15:42.018 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 01:15:42.347 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer - - - 200 - text/plain;+charset=utf-8 19824.8948ms
+2023-04-26 01:15:48.126 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer - -
+2023-04-26 01:15:48.446 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 01:15:48.931 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).
+2023-04-26 01:15:57.446 +05:00 Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-26 01:15:57.664 +05:00 Executed action LMS.API.Controllers.AccountController.GetString (LMS.API) in 8268.5426ms
+2023-04-26 01:15:57.969 +05:00 Executed endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 01:15:58.466 +05:00 Request finished HTTP/2 GET https://localhost:5001/api/Account/localizer - - - 200 - text/plain;+charset=utf-8 10340.5469ms
+2023-04-26 01:18:00.845 +05:00 Request starting HTTP/2 GET https://localhost:5001/api/Account/localizer - -
+2023-04-26 01:18:02.772 +05:00 Executing endpoint 'LMS.API.Controllers.AccountController.GetString (LMS.API)'
+2023-04-26 01:18:03.131 +05:00 Route matched with {action = "GetString", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetString(LMS.API.Services.LocalizerService) on controller LMS.API.Controllers.AccountController (LMS.API).

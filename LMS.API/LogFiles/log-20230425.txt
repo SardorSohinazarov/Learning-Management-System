@@ -1,0 +1,34 @@
+2023-04-25 05:41:49.973 +05:00 Application Starting
+2023-04-25 05:43:43.516 +05:00 Application Starting
+2023-04-25 05:43:55.775 +05:00 Application Starting
+2023-04-25 05:43:58.565 +05:00 Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-25 05:43:58.791 +05:00 Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-04-25 05:43:58.937 +05:00 Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-25 05:43:59.109 +05:00 Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-04-25 05:43:59.275 +05:00 Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-04-25 05:43:59.430 +05:00 Applying migration '20230425004345_LocalizationStringsTable'.
+2023-04-25 05:43:59.663 +05:00 Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [LocalizedStrings] (
+    [Key] nvarchar(450) NOT NULL,
+    [Uz] nvarchar(max) NULL,
+    [Ru] nvarchar(max) NULL,
+    [En] nvarchar(max) NULL,
+    CONSTRAINT [PK_LocalizedStrings] PRIMARY KEY ([Key])
+);
+2023-04-25 05:43:59.864 +05:00 Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Key', N'En', N'Ru', N'Uz') AND [object_id] = OBJECT_ID(N'[LocalizedStrings]'))
+    SET IDENTITY_INSERT [LocalizedStrings] ON;
+INSERT INTO [LocalizedStrings] ([Key], [En], [Ru], [Uz])
+VALUES (N'Required', N'{0} failed is required', N'{0} ... ruscha ...', N'{0} kiritilishi shart');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Key', N'En', N'Ru', N'Uz') AND [object_id] = OBJECT_ID(N'[LocalizedStrings]'))
+    SET IDENTITY_INSERT [LocalizedStrings] OFF;
+2023-04-25 05:44:00.016 +05:00 Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230425004345_LocalizationStringsTable', N'7.0.5');
