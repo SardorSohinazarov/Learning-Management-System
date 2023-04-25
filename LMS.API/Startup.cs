@@ -1,5 +1,6 @@
 using LMS.API.Context;
 using LMS.API.Models;
+using LMS.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -38,7 +39,10 @@ namespace LMS.API
             AddDbContextOptions(services);
             AddIdentityOptions(services);
 
+            services.AddScoped<LocalizerService>();
             services.AddControllers();
+            services.AddMemoryCache();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LMS.API", Version = "v1" });

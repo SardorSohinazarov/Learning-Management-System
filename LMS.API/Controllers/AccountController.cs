@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using LMS.API.Models;
 using LMS.API.Models.DTO;
+using LMS.API.Services;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -73,6 +74,12 @@ namespace LMS.API.Controllers
             var userDTO = user.Adapt<UserDTO>();
 
             return Ok(userDTO);
+        }
+
+        [HttpGet("localize")]
+        public IActionResult GetString([FromServices] LocalizerService localizerService)
+        {
+            return Ok(localizerService["Required"]);
         }
     }
 }

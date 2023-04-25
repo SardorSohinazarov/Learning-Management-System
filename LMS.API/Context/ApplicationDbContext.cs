@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using LMS.API.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -16,5 +17,24 @@ namespace LMS.API.Context
         public DbSet<Task> Tasks { get; set; }
         public DbSet<UserTask> UserTasks { get; set; }
         public DbSet<TaskComment> TaskComments { get; set; }
+        public DbSet<LocalizedStringEntity> LocalizedStrings { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<LocalizedStringEntity>().HasKey(l => l.Key);
+            builder.Entity<LocalizedStringEntity>().HasData(
+                new List<LocalizedStringEntity>()
+                {
+                    new LocalizedStringEntity
+                    {
+                        Key = "Required",
+                        Uz = "{0} kiritilishi shart",
+                        Ru = "{0} ... ruscha ...",
+                        En = "{0} failed is required"
+                    }
+                }
+            );
+        }
     }
 }
