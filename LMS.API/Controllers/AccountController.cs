@@ -76,10 +76,10 @@ namespace LMS.API.Controllers
             return Ok(userDTO);
         }
 
-        [HttpGet("localizer")]
-        public async Task<IActionResult> GetString([FromServices] LocalizerService localizerService)
+        [HttpGet("localize")]
+        public IActionResult GetString([FromServices] LocalizerService localizerService)
         {
-            return Ok(await localizerService.GetLocalizedString("Required"));
+            return Ok(localizerService["Required"]);
         }
     }
 }

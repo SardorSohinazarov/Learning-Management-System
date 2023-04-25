@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using LMS.API.Context;
 using LMS.API.Models;
@@ -18,34 +20,33 @@ namespace LMS.API.Services
             _memoryCache = memoryCache;
         }
 
-        public async Task<string> GetLocalizedString(string key)
+        public string this[string key] => GetLocalizedString(key);
+
+        public string GetLocalizedString(string key)
         {
             var cacheKey = $"localized_{CultureInfo.CurrentCulture.Name}_{key}";
 
-            if(_memoryCache.TryGetValue(cacheKey,out string cacheValue))
+            return _memoryCache.GetOrCreate(cacheKey, entry =>
             {
-                return cacheValue;
-            }
-
-            var localizedStringObject = await _context.LocalizedStrings.FirstOrDefaultAsync(x => x.Key == key);
+                var localizedStringObject = _context.LocalizedStrings.FirstOrDefault(x => x.Key == key);
             
-            if(localizedStringObject is null)
-                return key;
+                if(localizedStringObject is null)
+                    return key;
 
-            var currentCulture = CultureInfo.CurrentUICulture.Parent.Name;
+                var currentCulture = CultureInfo.CurrentUICulture.Parent.Name;
 
-            var localizedString = currentCulture.ToLower() switch
-            {
-                "uz" => localizedStringObject.Uz,
-                "en" => localizedStringObject.En,
-                "ru" => localizedStringObject.Ru,
-                _ => key
-            };
+                var localizedString = currentCulture.ToLower() switch
+                {
+                    "uz" => localizedStringObject.Uz,
+                    "en" => localizedStringObject.En,
+                    "ru" => localizedStringObject.Ru,
+                    _ => key
+                };
 
-            if(localizedString is not null)
-                _memoryCache.Set(cacheKey, localizedString);
+                entry.SlidingExpiration = TimeSpan.FromHours(1);
 
-            return localizedString ?? key;
+                return localizedString ?? key;
+            });
         }
     }
 }
