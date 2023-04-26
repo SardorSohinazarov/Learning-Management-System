@@ -68,8 +68,8 @@ namespace LMS.API.Controllers
 
         [HttpPost("courses/{courseId}/tasks/{taskId}")]
         public async Task<IActionResult> AddUserTaskResult(
-            Guid courseId, 
-            Guid taskId, 
+            Guid courseId,
+            Guid taskId,
             [FromBody] CreateUserTaskResultDto resultDto)
         {
             var task = await _applicationDbContext.Tasks
