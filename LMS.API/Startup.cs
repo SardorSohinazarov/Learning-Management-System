@@ -22,19 +22,7 @@ namespace LMS.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.DefaultPolicyName = "AllOrigin";
-                options.AddPolicy("AllOrigin",corsPolicyBuilder =>
-                {
-                    corsPolicyBuilder
-                        .AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
-                });
-            });
-
+            AddCorsOptions(services);
             AddLoggingOptions(this.Configuration);
             AddDbContextOptions(services);
             AddIdentityOptions(services);
@@ -66,6 +54,22 @@ namespace LMS.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+        }
+
+        private static void AddCorsOptions(IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.DefaultPolicyName = "AllOrigin";
+                options.AddPolicy("AllOrigin", corsPolicyBuilder =>
+                {
+                    corsPolicyBuilder
+                        //.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
             });
         }
 

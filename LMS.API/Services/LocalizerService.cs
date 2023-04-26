@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using LMS.API.Context;
-using LMS.API.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace LMS.API.Services
@@ -29,8 +26,8 @@ namespace LMS.API.Services
             return _memoryCache.GetOrCreate(cacheKey, entry =>
             {
                 var localizedStringObject = _context.LocalizedStrings.FirstOrDefault(x => x.Key == key);
-            
-                if(localizedStringObject is null)
+
+                if (localizedStringObject is null)
                     return key;
 
                 var currentCulture = CultureInfo.CurrentUICulture.Parent.Name;
