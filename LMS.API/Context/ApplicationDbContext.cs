@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LMS.API.Context.Configurations;
 using LMS.API.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,11 @@ namespace LMS.API.Context
         {
             base.OnModelCreating(builder);
             builder.Entity<LocalizedStringEntity>().HasKey(l => l.Key);
+
+            new TaskConfiguration().Configure(builder.Entity<Task>());
+
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
             builder.Entity<LocalizedStringEntity>().HasData(
                 new List<LocalizedStringEntity>()
                 {
